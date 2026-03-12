@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --color-primary: #2b3d4f;
+  --color-accent: #3498DB;
+  --color-background-light: #f8f7f2;
+  --color-background-dark: #16191c;
+  --font-display: "Inter", "Noto Sans TC", sans-serif;
+  --font-sans: "Inter", "Noto Sans TC", sans-serif;
+}

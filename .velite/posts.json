@@ -1,0 +1,60 @@
+[
+  {
+    "title": "The Evolution of Remote Collaboration",
+    "slug": "evolution-of-remote-collaboration",
+    "date": "2023-09-28T00:00:00.000Z",
+    "excerpt": "How distributed teams are leveraging new asynchronous tools to build culture and maintain productivity.",
+    "category": "Technology",
+    "cover": "https://lh3.googleusercontent.com/aida-public/AB6AXuA6xrsZo8qCfieOmmMlFpCEv2l_iBhhOWrLUmG4bT7Z8UlG0b3AtkUrHfie3z8D4kPWzzJoJuBVOg1OkGHXLiMRT2Kbqm3I9JKaUe-3ZjnZkGEEj0w2xiWXqfWFq2CnQb_ai3se9AejWfcjh2_uxcK-9oaDSqgHmGYQ-sdkfs7zuA7sD24-tgcBNedbcI9dY70Qz5L6Q-vtNfmDeEvB9K6pWwe6-b-YHSSIybaMFgekSPwbELtpdrHKmO-hxfoJVu0quhAY432Yp271",
+    "coverAlt": "Abstract digital connection points and lines",
+    "tags": [
+      "Remote Work",
+      "Productivity",
+      "Business"
+    ],
+    "content": "<p>How distributed teams are leveraging new asynchronous tools to build culture and maintain productivity.</p>"
+  },
+  {
+    "title": "The Future of Minimalist Design in 2024",
+    "slug": "future-of-minimalist-design",
+    "date": "2023-10-24T00:00:00.000Z",
+    "excerpt": "Exploring how simplicity in digital interfaces improves user cognition and reduces fatigue in the modern age of information overload.",
+    "category": "Design",
+    "cover": "https://lh3.googleusercontent.com/aida-public/AB6AXuA_GS35ye24pw2aKL9i64OnlOTPC4PBdZEI-ChzlvHvEY9oTBCu63g6ZFyz98xTpUZZjlmD7VBDX9Y2o5GsCPGL83P2DQTN__XhtPfh1KxF-ziulqTrlZ2dmIdxwSgYqHgYA22SketS8RZRqAPV8n_kFStM9yp_mmQNKehURXa2iRZFs9Tvma_rf8ICV7nbnmVuIrl_rq7VGPthkabTrNVy8LLaCk_DQPRCfj8MBaZokmiLGlnLj9Opnbn30CDfw8pWkeIlyRynQhOt",
+    "coverAlt": "Modern workspace with laptop and coffee",
+    "tags": [
+      "UI/UX",
+      "Typography",
+      "Minimalism"
+    ],
+    "content": "<p>Exploring how simplicity in digital interfaces improves user cognition and reduces fatigue in the modern age of information overload.</p>"
+  },
+  {
+    "title": "Optimizing React Renders with Advanced Memoization Techniques",
+    "slug": "optimizing-react-renders",
+    "date": "2024-01-15T00:00:00.000Z",
+    "excerpt": "React's rendering process is efficient, but as applications grow, unnecessary re-renders can become a bottleneck. Understanding how to leverage `useMemo` and `useCallback` effectively is crucial for building high-performance user interfaces.",
+    "category": "Engineering",
+    "cover": "https://lh3.googleusercontent.com/aida-public/AB6AXuDt1iL9XRvpefhdjckiysQ1IZQLI7SXrLR2UvD8vUUNkydDM50-rfdY3mOUqIgKiY81w3JVDowBHHtKbW-xGry8Lr6FQoEmcyZuSe7pd_uj51p3iZPun8wUTSXrKe8cmy_b-icSZquHmxZDc9pZz-szkpCZLOVSkUe8TFpocLBZ81U8u53567a-oGcGFDOHz3kFmCyZ6oKhZSRN2RqKi-2PA3jJAn_xOCt69ivC2CFvwudtTcIgUcw9bikNy8SvLkiuu_tWmydbcrvl",
+    "coverAlt": "Clean lines of computer code on a dark screen",
+    "tags": [
+      "Performance",
+      "React"
+    ],
+    "content": "<p>React's rendering process is efficient, but as applications grow, unnecessary re-renders can become a bottleneck. Understanding how to leverage <code>useMemo</code> and <code>useCallback</code> effectively is crucial for building high-performance user interfaces.</p>\n<h2>The Virtual DOM and Reconciliation</h2>\n<p>Before diving into optimization, we must understand the \"diffing\" algorithm. React creates a tree of elements. When state changes, a new tree is created. React compares the two trees to decide what actually needs to be updated in the real DOM.</p>\n<h2>Implementing useMemo Correctly</h2>\n<p>Memoization is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls.</p>\n<figure data-rehype-pretty-code-figure=\"\"><pre style=\"--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e\" tabindex=\"0\" data-language=\"javascript\" data-theme=\"github-light github-dark\"><code data-language=\"javascript\" data-theme=\"github-light github-dark\" style=\"display: grid;\"><span data-line=\"\"><span style=\"--shiki-light:#6A737D;--shiki-dark:#6A737D\">// Expensive computation memoized</span></span>\n<span data-line=\"\"><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\">const</span><span style=\"--shiki-light:#005CC5;--shiki-dark:#79B8FF\"> sortedList</span><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\"> =</span><span style=\"--shiki-light:#6F42C1;--shiki-dark:#B392F0\"> useMemo</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">(() </span><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\">=></span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\"> {</span></span>\n<span data-line=\"\"><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\">  return</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\"> items.</span><span style=\"--shiki-light:#6F42C1;--shiki-dark:#B392F0\">sort</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">((</span><span style=\"--shiki-light:#E36209;--shiki-dark:#FFAB70\">a</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">, </span><span style=\"--shiki-light:#E36209;--shiki-dark:#FFAB70\">b</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">) </span><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\">=></span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\"> a.value </span><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\">-</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\"> b.value);</span></span>\n<span data-line=\"\"><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">}, [items]);</span></span>\n<span data-line=\"\"> </span>\n<span data-line=\"\"><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\">function</span><span style=\"--shiki-light:#6F42C1;--shiki-dark:#B392F0\"> expensiveComponent</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">({ </span><span style=\"--shiki-light:#E36209;--shiki-dark:#FFAB70\">data</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\"> }) {</span></span>\n<span data-line=\"\"><span style=\"--shiki-light:#6A737D;--shiki-dark:#6A737D\">  // This component will only re-render if data changes</span></span>\n<span data-line=\"\"><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\">  return</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\"> &#x3C;</span><span style=\"--shiki-light:#22863A;--shiki-dark:#85E89D\">div</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">>{data.</span><span style=\"--shiki-light:#6F42C1;--shiki-dark:#B392F0\">map</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">(</span><span style=\"--shiki-light:#E36209;--shiki-dark:#FFAB70\">i</span><span style=\"--shiki-light:#D73A49;--shiki-dark:#F97583\"> =></span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\"> &#x3C;</span><span style=\"--shiki-light:#22863A;--shiki-dark:#85E89D\">span</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">>{i}&#x3C;/</span><span style=\"--shiki-light:#22863A;--shiki-dark:#85E89D\">span</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">>)}&#x3C;/</span><span style=\"--shiki-light:#22863A;--shiki-dark:#85E89D\">div</span><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">>;</span></span>\n<span data-line=\"\"><span style=\"--shiki-light:#24292E;--shiki-dark:#E1E4E8\">}</span></span></code></pre></figure>\n<h2>Common Pitfalls</h2>\n<p>Over-using memoization can actually degrade performance. Every hook has an overhead cost. If the computation being wrapped in <code>useMemo</code> is trivial, the overhead of the hook itself might exceed the benefits.</p>\n<blockquote>\n<p>\"Premature optimization is the root of all evil. Only optimize when you have measured a performance issue.\"</p>\n</blockquote>\n<h2>Conclusion</h2>\n<p>Performance optimization in React is a balanced act. By using tools like the React DevTools Profiler, you can identify exactly which components are re-rendering unnecessarily and apply these techniques where they matter most.</p>"
+  },
+  {
+    "title": "Sustainable Engineering Practices",
+    "slug": "sustainable-engineering-practices",
+    "date": "2023-10-15T00:00:00.000Z",
+    "excerpt": "A deep dive into how modern development teams are reducing their carbon footprint through efficient code and server management.",
+    "category": "Engineering",
+    "cover": "https://lh3.googleusercontent.com/aida-public/AB6AXuDt1iL9XRvpefhdjckiysQ1IZQLI7SXrLR2UvD8vUUNkydDM50-rfdY3mOUqIgKiY81w3JVDowBHHtKbW-xGry8Lr6FQoEmcyZuSe7pd_uj51p3iZPun8wUTSXrKe8cmy_b-icSZquHmxZDc9pZz-szkpCZLOVSkUe8TFpocLBZ81U8u53567a-oGcGFDOHz3kFmCyZ6oKhZSRN2RqKi-2PA3jJAn_xOCt69ivC2CFvwudtTcIgUcw9bikNy8SvLkiuu_tWmydbcrvl",
+    "coverAlt": "Clean lines of computer code on a dark screen",
+    "tags": [
+      "Sustainability",
+      "DevOps"
+    ],
+    "content": "<p>A deep dive into how modern development teams are reducing their carbon footprint through efficient code and server management.</p>"
+  }
+]
