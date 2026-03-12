@@ -3,11 +3,26 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
-  --color-primary: #2b3d4f;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  --color-primary: #1e293b;
   --color-accent: #3498db;
   --color-background-light: #f8f7f2;
-  --color-background-dark: #16191c;
+  --color-background-dark: #1e293b;
   --font-display: "Inter", "Noto Sans TC", sans-serif;
   --font-sans: "Inter", "Noto Sans TC", sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    @apply transition-colors duration-500 ease-in-out;
+  }
 }
