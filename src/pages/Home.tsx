@@ -5,7 +5,7 @@ export default function Home() {
     <div className="px-4 md:px-10 lg:px-40 py-8">
       {/* Hero Section */}
       <section className="mb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-primary/5 dark:border-white/5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-primary/5 dark:border-white/5">
           <div className="aspect-video lg:aspect-square bg-slate-200 dark:bg-slate-800 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20"></div>
             <img
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <Link to="/articles/scaling-microservices" className="group flex flex-col bg-white dark:bg-slate-900 rounded-xl border border-primary/5 dark:border-white/5 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+          <Link to="/articles/scaling-microservices" className="group flex flex-col bg-slate-50 dark:bg-slate-800 rounded-xl border border-primary/5 dark:border-white/5 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
             <div className="aspect-video overflow-hidden">
               <img
                 alt="Cloud computing server racks"
@@ -79,7 +79,7 @@ export default function Home() {
           </Link>
 
           {/* Card 2 */}
-          <Link to="/articles/rust-vs-go" className="group flex flex-col bg-white dark:bg-slate-900 rounded-xl border border-primary/5 dark:border-white/5 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+          <Link to="/articles/rust-vs-go" className="group flex flex-col bg-slate-50 dark:bg-slate-800 rounded-xl border border-primary/5 dark:border-white/5 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
             <div className="aspect-video overflow-hidden">
               <img
                 alt="Cybersecurity conceptual image"
@@ -108,7 +108,7 @@ export default function Home() {
           </Link>
 
           {/* Card 3 */}
-          <Link to="/articles/deep-dive-k8s-schedulers" className="group flex flex-col bg-white dark:bg-slate-900 rounded-xl border border-primary/5 dark:border-white/5 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+          <Link to="/articles/deep-dive-k8s-schedulers" className="group flex flex-col bg-slate-50 dark:bg-slate-800 rounded-xl border border-primary/5 dark:border-white/5 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
             <div className="aspect-video overflow-hidden">
               <img
                 alt="Kubernetes logo abstract"
@@ -147,7 +147,7 @@ export default function Home() {
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="flex flex-col md:flex-row gap-6 p-6 bg-white dark:bg-slate-900 rounded-xl border border-primary/5 dark:border-white/5 shadow-sm">
+          <div className="flex flex-col md:flex-row gap-6 p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-primary/5 dark:border-white/5 shadow-sm">
             <div className="w-full md:w-32 h-32 flex-shrink-0 bg-primary/5 dark:bg-white/5 rounded-lg flex items-center justify-center">
               <span className="material-symbols-outlined text-5xl text-accent/40">memory</span>
             </div>
@@ -163,7 +163,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-6 p-6 bg-white dark:bg-slate-900 rounded-xl border border-primary/5 dark:border-white/5 shadow-sm">
+          <div className="flex flex-col md:flex-row gap-6 p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-primary/5 dark:border-white/5 shadow-sm">
             <div className="w-full md:w-32 h-32 flex-shrink-0 bg-primary/5 dark:bg-white/5 rounded-lg flex items-center justify-center">
               <span className="material-symbols-outlined text-5xl text-accent/40">hub</span>
             </div>
