@@ -1,4 +1,4 @@
-import { useArticleStore } from '../store/useArticleStore';
+import { useArticleStore } from '@/store/useArticleStore';
 import { posts } from '../../.velite';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
