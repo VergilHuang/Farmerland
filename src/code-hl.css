@@ -1,0 +1,87 @@
+/* ─── rehype-pretty-code (Shiki) dual-theme support ─── */
+
+/* Light mode: use --shiki-light tokens */
+[data-rehype-pretty-code-figure] pre {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+[data-rehype-pretty-code-figure] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg, transparent);
+}
+
+/* Dark mode: override with --shiki-dark tokens */
+.dark [data-rehype-pretty-code-figure] pre {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+.dark [data-rehype-pretty-code-figure] span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg, transparent) !important;
+}
+
+/* Code block container styling */
+[data-rehype-pretty-code-figure] {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  border-radius: 0.625rem;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  border: 1px solid rgba(43, 61, 79, 0.1);
+}
+
+.dark [data-rehype-pretty-code-figure] pre {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Language badge on top-right of figure */
+[data-rehype-pretty-code-figure] figcaption[data-language] {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  transform: translateY(-50%);
+  padding: 0.15rem 0.6rem;
+  border-radius: 0.375rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Highlighted lines */
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background-color: rgba(52, 152, 219, 0.12);
+  border-left: 2px solid var(--color-accent);
+  padding-left: calc(1.5rem - 2px);
+  margin-left: -1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Line numbers */
+code[data-line-numbers] {
+  counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: rgba(43, 61, 79, 0.3);
+  font-size: 0.75rem;
+}
+
+.dark code[data-line-numbers] > [data-line]::before {
+  color: rgba(255, 255, 255, 0.25);
+}
