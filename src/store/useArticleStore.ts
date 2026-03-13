@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface ArticleState {
   searchQuery: string;
@@ -11,7 +11,7 @@ interface ArticleState {
 }
 
 export const useArticleStore = create<ArticleState>((set) => ({
-  searchQuery: '',
+  searchQuery: "",
   selectedCategory: null,
   selectedTags: [],
   setSearchQuery: (query) => set({ searchQuery: query }),
@@ -22,5 +22,5 @@ export const useArticleStore = create<ArticleState>((set) => ({
         ? state.selectedTags.filter((t) => t !== tag)
         : [...state.selectedTags, tag],
     })),
-  clearFilters: () => set({ searchQuery: '', selectedCategory: null, selectedTags: [] }),
+  clearFilters: () => set({ searchQuery: "", selectedCategory: null, selectedTags: [] }),
 }));

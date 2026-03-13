@@ -1,14 +1,14 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import MainLayout from '@/layouts/MainLayout';
-import Home from '@/pages/Home';
-import Articles from '@/pages/Articles';
-import ArticleDetail from '@/pages/ArticleDetail';
-import Portfolio from '@/pages/Portfolio';
-import About from '@/pages/About';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import MainLayout from "@/layouts/MainLayout";
+import Home from "@/pages/home/index";
+import Articles from "@/pages/articles/index";
+import ArticleDetail from "@/pages/article-detail/index";
+import Portfolio from "@/pages/portfolio/index";
+import About from "@/pages/about/index";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     children: [
       {
@@ -16,19 +16,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'articles',
+        path: "articles",
         element: <Articles />,
       },
       {
-        path: 'articles/:slug',
+        path: "articles/:slug",
         element: <ArticleDetail />,
       },
       {
-        path: 'portfolio',
+        path: "portfolio",
         element: <Portfolio />,
       },
       {
-        path: 'about',
+        path: "about",
         element: <About />,
       },
     ],
