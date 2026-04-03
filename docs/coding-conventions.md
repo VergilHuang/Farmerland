@@ -36,6 +36,45 @@ useEffect(() => {
 }, []);
 ```
 
+---
+
+### Coding Style
+
+javascript 參考: @docs/javascript-specific-convention.md
+
+---
+
+### TypeScript
+
+- 禁止使用 `any`，改用 `unknown` + type guard
+- 所有資料結構必須定義 `interface` 或 `type`
+- Velite schema 型別從 Zod schema 推導（`z.infer<typeof schema>`）
+- strict mode 已啟用：`noUnusedLocals`、`noUnusedParameters` 均為 `true`
+
+---
+
+### State Management — Zustand
+
+- Client-only state 使用 Zustand，store 放在 `src/store/` 目錄
+- Store 檔案命名：`use<Domain>Store.ts`（例如 `useArticleStore.ts`）
+- **不把 Server state 放進 Zustand**
+
+---
+
+## Path Alias（路徑別名）
+
+`vite.config.ts` 與 `tsconfig.app.json` 均已設定 `@` 指向 `src/`：
+
+```typescript
+import MainLayout from "@/layouts/MainLayout";
+import { cn } from "@/lib/utils";
+import useArticleStore from "@/store/useArticleStore";
+```
+
+> ⚠️ 不得使用超過兩層的相對路徑 `../../`，一律改用 `@/` alias。
+
+---
+
 ### 元件拆分原則
 
 1. **單一職責（SRP）**：一個元件只做一件事
@@ -62,6 +101,7 @@ const ArticleList = () => {
 ```
 
 5. **Props 複雜度**：超過 5–7 個 props 時，考慮拆分子元件或使用 object 合併
+6. **避免過度碎片化**：只應用在單一組件內的事件流，若邏輯單純可不用抽出，太過碎片化無助於專案維護。
 
 ### Styling — Tailwind CSS v4
 
@@ -80,32 +120,3 @@ export function cn(...inputs: ClassValue[]) {
 
 - 避免 inline style，除非是動態計算值（如 `style={{ width: dynamicWidth }}`）
 - 使用 `@tailwindcss/typography` 的 `prose` class 渲染 Markdown 內容
-
-### State Management — Zustand
-
-- Client-only state 使用 Zustand，store 放在 `src/store/` 目錄
-- Store 檔案命名：`use<Domain>Store.ts`（例如 `useArticleStore.ts`）
-- **不把 Server state 放進 Zustand**
-
-### TypeScript
-
-- 禁止使用 `any`，改用 `unknown` + type guard
-- 所有資料結構必須定義 `interface` 或 `type`
-- Velite schema 型別從 Zod schema 推導（`z.infer<typeof schema>`）
-- strict mode 已啟用：`noUnusedLocals`、`noUnusedParameters` 均為 `true`
-
----
-
-## Path Alias（路徑別名）
-
-`vite.config.ts` 與 `tsconfig.app.json` 均已設定 `@` 指向 `src/`：
-
-```typescript
-import MainLayout from "@/layouts/MainLayout";
-import { cn } from "@/lib/utils";
-import useArticleStore from "@/store/useArticleStore";
-```
-
-> ⚠️ 不得使用超過兩層的相對路徑 `../../`，一律改用 `@/` alias。
-
----

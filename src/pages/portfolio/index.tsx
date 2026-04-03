@@ -1,6 +1,17 @@
+import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
+import { cn } from "@/lib/utils";
 
-const PROJECTS = [
+interface ProjectInterface {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  tags?: string[];
+  lastUpdated: string;
+}
+
+const PROJECTS: ProjectInterface[] = [
   {
     title: "AI Task Planner",
     description:
@@ -59,7 +70,32 @@ const PROJECTS = [
   },
 ];
 
+const tagSet = PROJECTS.reduce((acc, cur) => {
+  if (Array.isArray(cur.tags)) {
+    cur.tags.forEach((tag) => {
+      if (typeof tag === "string") {
+        acc.add(tag);
+      }
+    });
+  }
+  return acc;
+}, new Set<string>());
+
+const FILTERS: string[] = ["All", ...tagSet.values()];
+
 export default function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const getFilteredProjects = () => {
+    if (activeFilter === "All") {
+      return PROJECTS;
+    }
+
+    return PROJECTS.filter((project) => project.tags?.includes(activeFilter));
+  };
+
+  const filteredProjects = getFilteredProjects();
+
   return (
     <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col px-6 py-10 md:px-20">
       {/* Hero Section */}
@@ -78,27 +114,25 @@ export default function Portfolio() {
 
       {/* Filters */}
       <div className="scrollbar-hide mb-8 flex gap-3 overflow-x-auto pb-2">
-        <button className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 text-sm font-bold text-white shadow-md shadow-primary/20">
-          <span>All Projects</span>
-        </button>
-        <button className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-primary/10 bg-white px-5 text-sm font-medium text-primary transition-all hover:border-accent dark:border-white/10 dark:bg-slate-800 dark:text-slate-300">
-          <span>React</span>
-        </button>
-        <button className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-primary/10 bg-white px-5 text-sm font-medium text-primary transition-all hover:border-accent dark:border-white/10 dark:bg-slate-800 dark:text-slate-300">
-          <span>Node.js</span>
-        </button>
-        <button className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-primary/10 bg-white px-5 text-sm font-medium text-primary transition-all hover:border-accent dark:border-white/10 dark:bg-slate-800 dark:text-slate-300">
-          <span>AWS</span>
-        </button>
-        <button className="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-primary/10 bg-white px-5 text-sm font-medium text-primary transition-all hover:border-accent dark:border-white/10 dark:bg-slate-800 dark:text-slate-300">
-          <span>AI/ML</span>
-        </button>
+        {FILTERS.map((filterOption) => (
+          <button
+            key={filterOption}
+            onClick={() => setActiveFilter(filterOption)}
+            className={cn(
+              "flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 text-sm font-medium",
+              filterOption === activeFilter
+                ? "border border-primary/10 bg-white text-primary dark:border-white/10 dark:bg-slate-800 dark:text-slate-300"
+                : "bg-primary font-bold text-white shadow-md shadow-primary/20 hover:border-accent",
+            )}>
+            <span>{filterOption}</span>
+          </button>
+        ))}
       </div>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {PROJECTS.map((project, idx) => (
-          <ProjectCard key={idx} {...project} />
+        {filteredProjects.map((project, index) => (
+          <ProjectCard key={`${project.title}-${index}`} {...project} />
         ))}
       </div>
     </div>

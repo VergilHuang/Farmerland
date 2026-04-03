@@ -1,9 +1,9 @@
 export interface ProjectCardProps {
   title: string;
   description: string;
-  imageUrl: string;
-  imageAlt: string;
-  tags: string[];
+  imageUrl?: string;
+  imageAlt?: string;
+  tags?: string[];
   lastUpdated: string;
   demoUrl?: string;
   codeUrl?: string;
@@ -36,7 +36,7 @@ export default function ProjectCard({
       </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3 flex flex-wrap gap-2">
-          {tags.map((tag) => (
+          {tags?.map((tag) => (
             <span key={tag} className="rounded-sm bg-accent/10 px-2 py-0.5 text-[10px] font-bold text-accent uppercase">
               {tag}
             </span>
