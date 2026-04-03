@@ -7,19 +7,42 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+/.pnp
+.pnp.js
+
+# Build and Testing Outputs
 dist
 dist-ssr
 *.local
+coverage/
+.nyc_output/
 
-# Editor directories and files
+# Caches
+.eslintcache
+node_modules/.cache/
+
+# Editor directories and OS files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Velite Content Output
 .velite/
+
+# Environment Variables (Security)
+.env
+.env.*
+!.env.example
+
+# Temporary / Agent Folders
+.gemini/
