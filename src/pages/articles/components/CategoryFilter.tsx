@@ -1,11 +1,13 @@
+import { useArticleStore } from "@/store/useArticleStore";
+
 export interface CategoryFilterProps {
-  categoryCounts: [string, number][];
-  activeCategory: string | null;
-  onSelectCategory: (targetCategory: string | null) => void;
+  availableCategories: [string, number][];
 }
 
-export default function CategoryFilter({ categoryCounts, activeCategory, onSelectCategory }: CategoryFilterProps) {
-  if (categoryCounts.length === 0) return null;
+export default function CategoryFilter({ availableCategories }: CategoryFilterProps) {
+  const { selectedCategory, setSelectedCategory } = useArticleStore();
+
+  if (availableCategories.length === 0) return null;
 
   return (
     <section className="rounded-xl border border-primary/10 bg-white p-6 shadow-sm transition-colors duration-500 ease-in-out dark:border-white/5 dark:bg-slate-800">
@@ -14,15 +16,15 @@ export default function CategoryFilter({ categoryCounts, activeCategory, onSelec
         Categories
       </h4>
       <ul className="flex flex-col gap-3">
-        {categoryCounts.map(([categoryName, postCount]) => (
+        {availableCategories.map(([categoryName, postCount]) => (
           <li key={categoryName}>
             <button
-              onClick={() => onSelectCategory(activeCategory === categoryName ? null : categoryName)}
+              onClick={() => setSelectedCategory(selectedCategory === categoryName ? null : categoryName)}
               aria-label={`過濾分類：${categoryName}`}
               className="group flex w-full items-center justify-between">
               <span
                 className={`transition-colors ${
-                  activeCategory === categoryName
+                  selectedCategory === categoryName
                     ? "font-bold text-accent"
                     : "text-primary/70 group-hover:text-accent dark:text-slate-300"
                 }`}>

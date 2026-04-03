@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useArticleStore } from "@/store/useArticleStore";
 import { posts } from "../../../.velite";
 import FarmPagination from "@/components/FarmPagination";
@@ -6,39 +6,21 @@ import PostArticleCard from "./components/PostArticleCard";
 import ArticlesSidebar from "./components/ArticlesSidebar";
 
 export default function Articles() {
-  const { searchQuery, setSearchQuery, selectedCategory, setSelectedCategory, selectedTags, toggleTag, clearFilters } =
-    useArticleStore();
+  const {
+    currentPage,
+    setCurrentPage,
+    searchQuery,
+    setSearchQuery,
+    selectedCategory,
+    selectedTags,
+    clearFilters,
+    setSelectedCategory,
+    toggleTag,
+  } = useArticleStore();
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 6;
+  const pageSize = 1;
 
-  // Track filter changes to reset page without cascading renders
-  const filterKey = `${searchQuery}-${selectedCategory}-${selectedTags.join(",")}`;
-  const [prevFilterKey, setPrevFilterKey] = useState(filterKey);
-
-  if (filterKey !== prevFilterKey) {
-    setCurrentPage(1);
-    setPrevFilterKey(filterKey);
-  }
-
-  const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    posts.forEach((postItem) => {
-      if (postItem.category) {
-        counts[postItem.category] = (counts[postItem.category] || 0) + 1;
-      }
-    });
-    return Object.entries(counts).sort((a, b) => b[1] - a[1]);
-  }, []);
-
-  const availableTags = useMemo(() => {
-    const tagSet = new Set<string>();
-    posts.forEach((postItem) => {
-      postItem.tags?.forEach((tagItem) => tagSet.add(tagItem));
-    });
-    return Array.from(tagSet).sort();
-  }, []);
-
+  // 篩選條件後的文章
   const filteredPosts = useMemo(() => {
     return posts
       .filter((postItem) => {
@@ -54,6 +36,7 @@ export default function Articles() {
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, [searchQuery, selectedCategory, selectedTags]);
 
+  // 分頁後需要呈現的文章
   const paginatedPosts = useMemo(() => {
     const startIndex = (currentPage - 1) * pageSize;
     return filteredPosts.slice(startIndex, startIndex + pageSize);
@@ -139,14 +122,7 @@ export default function Articles() {
           />
         </div>
 
-        <ArticlesSidebar
-          categoryCounts={categoryCounts}
-          activeCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-          availableTags={availableTags}
-          selectedTags={selectedTags}
-          onToggleTag={toggleTag}
-        />
+        <ArticlesSidebar posts={posts} />
       </div>
     </div>
   );

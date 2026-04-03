@@ -1,10 +1,12 @@
+import { useArticleStore } from "@/store/useArticleStore";
+
 export interface TagCloudFilterProps {
   availableTags: string[];
-  selectedTags: string[];
-  onToggleTag: (toggleTarget: string) => void;
 }
 
-export default function TagCloudFilter({ availableTags, selectedTags, onToggleTag }: TagCloudFilterProps) {
+export default function TagCloudFilter({ availableTags }: TagCloudFilterProps) {
+  const { selectedTags, toggleTag } = useArticleStore();
+
   if (availableTags.length === 0) return null;
 
   return (
@@ -17,7 +19,7 @@ export default function TagCloudFilter({ availableTags, selectedTags, onToggleTa
         {availableTags.map((tagName) => (
           <button
             key={tagName}
-            onClick={() => onToggleTag(tagName)}
+            onClick={() => toggleTag(tagName)}
             aria-label={`切換標籤過濾：${tagName}`}
             className={`rounded px-3 py-1.5 text-sm font-medium transition-all ${
               selectedTags.includes(tagName)

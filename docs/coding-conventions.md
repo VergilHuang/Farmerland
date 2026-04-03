@@ -58,6 +58,7 @@ javascript 參考: @docs/javascript-specific-convention.md
 - Client-only state 使用 Zustand，store 放在 `src/store/` 目錄
 - Store 檔案命名：`use<Domain>Store.ts`（例如 `useArticleStore.ts`）
 - **不把 Server state 放進 Zustand**
+- **控制邏輯應提升至 Store，元件只負責觸發 action**：當某個使用者行為（如切換過濾條件）必然伴隨其他狀態變更（如重置頁碼），這條業務規則應內建在 Store 的 action 中，而非依賴元件層用 `useEffect` 去監聽並補償。前者是事件驅動（每個動作帶著完整語意），後者是響應式補丁（渲染後才修正，容易產生 cascading renders）。
 
 ---
 
@@ -102,6 +103,7 @@ const ArticleList = () => {
 
 5. **Props 複雜度**：超過 5–7 個 props 時，考慮拆分子元件或使用 object 合併
 6. **避免過度碎片化**：只應用在單一組件內的事件流，若邏輯單純可不用抽出，太過碎片化無助於專案維護。
+7. **單一職責要素下沉**：若子元件本身就負責某個互動行為（如切換標籤、選取分類），則該行為所需的狀態與 action 應由子元件直接從 Store 取得，而非由父層透過 props 傳入。這使元件的職責自完備，也避免 props drilling — 父層只需傳遞計算所需的原始資料，不充當狀態的中繼站。
 
 ### Styling — Tailwind CSS v4
 
