@@ -31,7 +31,7 @@ export default function About() {
       </div>
 
       {/* Personal Bio Section */}
-      <div className="mb-12 rounded-2xl border border-primary/5 bg-white p-8 shadow-sm dark:border-white/5 dark:bg-slate-800/50">
+      <div className="mb-12 rounded-2xl border border-primary/5 bg-white p-8 shadow-sm transition-colors duration-500 ease-in-out dark:border-white/5 dark:bg-slate-800/50">
         <div className="mb-4 flex flex-wrap justify-between gap-3">
           <div className="flex min-w-72 flex-col gap-2">
             <h2 className="tracking-light text-[32px] leading-tight font-bold text-primary dark:text-slate-100">
@@ -56,7 +56,7 @@ export default function About() {
         {/* Full Stack Transition */}
         <div className="relative ml-4 border-l-2 border-accent/30 pb-12 pl-10">
           <div className="absolute top-0 -left-[11px] size-5 rounded-full border-4 border-background-light bg-accent dark:border-background-dark"></div>
-          <div className="rounded-xl border border-primary/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-slate-800/50">
+          <div className="rounded-xl border border-primary/5 bg-white p-6 shadow-sm transition-colors duration-500 ease-in-out dark:border-white/5 dark:bg-slate-800/50">
             <span className="text-sm font-bold tracking-wider text-accent uppercase">2021 — Present</span>
             <h3 className="mt-1 text-xl font-bold text-primary dark:text-slate-100">Full-Stack Evolution</h3>
             <p className="mb-3 font-medium text-primary/60 dark:text-slate-400">Expanding the Ecosystem</p>
@@ -75,7 +75,7 @@ export default function About() {
         {/* Front-End Mastery */}
         <div className="relative ml-4 border-l-2 border-accent/30 pb-12 pl-10">
           <div className="absolute top-0 -left-[11px] size-5 rounded-full border-4 border-background-light bg-primary dark:border-background-dark"></div>
-          <div className="rounded-xl border border-primary/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-slate-800/50">
+          <div className="rounded-xl border border-primary/5 bg-white p-6 shadow-sm transition-colors duration-500 ease-in-out dark:border-white/5 dark:bg-slate-800/50">
             <span className="text-sm font-bold tracking-wider text-primary/50 uppercase dark:text-slate-400">
               2014 — 2021
             </span>
@@ -102,7 +102,7 @@ export default function About() {
         {/* The Beginning */}
         <div className="relative ml-4 border-l-2 border-transparent pb-4 pl-10">
           <div className="absolute top-0 -left-[11px] size-5 rounded-full border-4 border-background-light bg-primary/30 dark:border-background-dark"></div>
-          <div className="rounded-xl border border-primary/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-slate-800/50">
+          <div className="rounded-xl border border-primary/5 bg-white p-6 shadow-sm transition-colors duration-500 ease-in-out dark:border-white/5 dark:bg-slate-800/50">
             <span className="text-sm font-bold tracking-wider text-primary/50 uppercase dark:text-slate-400">2013</span>
             <h3 className="mt-1 text-xl font-bold text-primary dark:text-slate-100">Planting the Seeds</h3>
             <p className="mb-3 font-medium text-primary/60 dark:text-slate-400">Junior Developer Roots</p>

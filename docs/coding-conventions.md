@@ -8,6 +8,33 @@
 - 一個檔案只導出一個元件（除非是緊密相關的小元件）
 - Props 用 `interface` 定義，放在元件檔案頂部
 - 避免不必要的 `useEffect`
+- **`useEffect` 內優先使用 Early Return Guard**：在建立副作用資源（EventListener、Timer、Observer 等）之前，先檢查前置條件，條件不符則直接 `return`，避免不必要的資源建立與清除開銷
+
+```typescript
+// ❌ 在 callback 內部才做條件判斷 — listener 永遠會被建立
+useEffect(() => {
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const handleChange = (e: MediaQueryListEvent) => {
+    if (!localStorage.getItem("theme")) {   // ← 每次事件觸發才判斷
+      setTheme(e.matches ? "dark" : "light");
+    }
+  };
+  mediaQuery.addEventListener("change", handleChange);
+  return () => mediaQuery.removeEventListener("change", handleChange);
+}, []);
+
+// ✅ Effect 入口先做 Guard — 條件不符直接 return，listener 根本不會被建立
+useEffect(() => {
+  if (localStorage.getItem("theme")) return;  // ← Guard：使用者已手動設定，不需要跟隨系統
+
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const handleChange = (e: MediaQueryListEvent) => {
+    setTheme(e.matches ? "dark" : "light");
+  };
+  mediaQuery.addEventListener("change", handleChange);
+  return () => mediaQuery.removeEventListener("change", handleChange);
+}, []);
+```
 
 ### 元件拆分原則
 

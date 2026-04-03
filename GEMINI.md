@@ -123,6 +123,7 @@ import { posts } from "@/../.velite";
 - do: 若元件的邏輯過於複雜至於違反單一職責原則，應評估是否合適將邏輯另外抽至 Custom Hook 或 Zustand store(若有跨元件控制需求)
 - do: 製作一個公用的useLogger取代 `console.log`。為了實踐資訊安全，需要在正式環境中移除或隱藏所有的log message.
 
+- don't: 不要擅自增加任務。如果有好的做法可以提出建議讓我審核, 禁止未經同意增加預期以外的行為。
 - don't: 不使用 Class Component
 - don't: 不使用 `any`。 盡量以unknown強制檢查
 - don't: 不 hardcode 任何路徑或設定值

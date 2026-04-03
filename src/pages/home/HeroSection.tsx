@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 export default function HeroSection() {
   return (
     <section className="mb-16">
-      <div className="grid grid-cols-1 items-center gap-8 overflow-hidden rounded-xl border border-primary/5 bg-slate-50 shadow-sm lg:grid-cols-2 dark:border-white/5 dark:bg-slate-800">
-        <div className="relative overflow-hidden bg-slate-200 lg:h-full dark:bg-slate-800">
+      <div className="grid grid-cols-1 items-center gap-8 overflow-hidden rounded-xl border border-primary/5 bg-slate-50 shadow-sm transition-colors duration-500 ease-in-out lg:grid-cols-2 dark:border-white/5 dark:bg-slate-800">
+        <div className="relative overflow-hidden bg-slate-200 transition-colors duration-500 ease-in-out lg:h-full dark:bg-slate-800">
           <div className="absolute inset-0 bg-linear-to-br from-primary to-accent opacity-20"></div>
           <img
             alt="Professional developer workstation"

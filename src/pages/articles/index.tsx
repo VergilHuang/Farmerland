@@ -163,7 +163,7 @@ export default function Articles() {
         {/* Sidebar Area */}
         <aside className="flex flex-col gap-10 lg:col-span-4">
           {/* Categories */}
-          <section className="rounded-xl border border-primary/10 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-slate-800">
+          <section className="rounded-xl border border-primary/10 bg-white p-6 shadow-sm transition-colors duration-500 ease-in-out dark:border-white/5 dark:bg-slate-800">
             <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-primary dark:text-slate-100">
               <span className="material-symbols-outlined text-accent">category</span>
               Categories
@@ -192,7 +192,7 @@ export default function Articles() {
           </section>
 
           {/* Tags Cloud */}
-          <section className="rounded-xl border border-primary/10 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-slate-800">
+          <section className="rounded-xl border border-primary/10 bg-white p-6 shadow-sm transition-colors duration-500 ease-in-out dark:border-white/5 dark:bg-slate-800">
             <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-primary dark:text-slate-100">
               <span className="material-symbols-outlined text-accent">sell</span>
               Popular Tags
@@ -214,7 +214,7 @@ export default function Articles() {
           </section>
 
           {/* Newsletter Sidebar Box */}
-          <section className="rounded-xl bg-primary p-6 text-white shadow-lg dark:bg-slate-900">
+          <section className="rounded-xl bg-primary p-6 text-white shadow-lg transition-colors duration-500 ease-in-out dark:bg-slate-900">
             <h4 className="mb-2 text-lg font-bold">Weekly Archive</h4>
             <p className="mb-4 text-sm leading-relaxed text-white/80">
               Get the best articles and design resources straight to your inbox.

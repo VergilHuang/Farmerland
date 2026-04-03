@@ -3,6 +3,10 @@ name: git conventions
 description: Helps with a specfic task. Use it when you using git tool.
 ---
 
+## User requirement
+
+Let the reviewer see the message of commit before submitting any information.
+
 ## Git Conventions example
 
 - Commit message with description and breaking change footer

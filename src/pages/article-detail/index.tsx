@@ -108,7 +108,7 @@ export default function ArticleDetail() {
 
         <aside className="hidden lg:col-span-4 lg:block">
           <div className="sticky top-28 space-y-8">
-            <div className="rounded-xl border border-primary/10 bg-white/50 p-6 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-slate-800/50">
+            <div className="rounded-xl border border-primary/10 bg-white/50 p-6 shadow-sm backdrop-blur-sm transition-colors duration-500 ease-in-out dark:border-white/10 dark:bg-slate-800/50">
               <h3 className="mb-4 text-sm font-bold tracking-widest text-primary/40 uppercase dark:text-slate-500">
                 Table of Contents
               </h3>
@@ -117,7 +117,7 @@ export default function ArticleDetail() {
               </nav>
             </div>
 
-            <div className="rounded-xl border border-primary/10 bg-white/30 p-6 dark:border-white/10 dark:bg-slate-800/30">
+            <div className="rounded-xl border border-primary/10 bg-white/30 p-6 transition-colors duration-500 ease-in-out dark:border-white/10 dark:bg-slate-800/30">
               <h3 className="mb-4 text-sm font-bold tracking-widest text-primary/40 uppercase dark:text-slate-500">
                 Related Posts
               </h3>
