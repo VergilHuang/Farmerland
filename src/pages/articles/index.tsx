@@ -18,7 +18,7 @@ export default function Articles() {
     toggleTag,
   } = useArticleStore();
 
-  const pageSize = 1;
+  const pageSize = 6;
 
   // 篩選條件後的文章
   const filteredPosts = useMemo(() => {

@@ -70,7 +70,7 @@ export default function Home() {
       </section>
 
       {/* Latest Research Section */}
-      <section>
+      {/* <section>
         <div className="mb-8 flex items-center justify-between">
           <h2 className="flex items-center gap-3 text-2xl leading-tight font-bold text-primary dark:text-slate-50">
             <span className="material-symbols-outlined text-accent">science</span>
@@ -118,7 +118,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
