@@ -13,6 +13,7 @@ export default function Header() {
     if (isActive) {
       return cn(baseClasses, "text-accent underline underline-offset-4");
     }
+
     return cn(baseClasses, "text-slate-700 dark:text-slate-300 hover:text-accent");
   };
 
@@ -31,13 +32,19 @@ export default function Header() {
             <Link to="/articles" className={getLinkClasses("/articles")}>
               Articles
             </Link>
-            <Link to="/about" className={getLinkClasses("/about")}>
-              About
-            </Link>
-            <Link to="/portfolio" className={getLinkClasses("/portfolio")}>
-              Portfolio
-            </Link>
             <a
+              href="https://hire-him-3.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "text-sm font-semibold text-slate-700 transition-colors duration-500 ease-in-out hover:text-accent dark:text-slate-300",
+              )}>
+              About
+            </a>
+            {/* <Link to="/portfolio" className={getLinkClasses("/portfolio")}>
+              Portfolio
+            </Link> */}
+            {/* <a
               className="text-sm font-semibold text-slate-700 transition-colors duration-500 ease-in-out hover:text-accent dark:text-slate-300"
               href="#">
               Contact
@@ -46,7 +53,7 @@ export default function Header() {
               className="text-sm font-semibold text-slate-700 transition-colors duration-500 ease-in-out hover:text-accent dark:text-slate-300"
               href="#">
               Research
-            </a>
+            </a> */}
           </nav>
           <button
             onClick={toggleTheme}

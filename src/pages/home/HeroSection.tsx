@@ -27,9 +27,9 @@ export default function HeroSection() {
           </div>
           <div className="flex flex-wrap justify-around gap-4 lg:justify-start">
             <Link
-              to="/portfolio"
+              to="/articles"
               className="flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-bold text-white shadow-md transition-all hover:bg-primary/90 dark:bg-slate-700">
-              View My Projects
+              Read My Articles
             </Link>
             {/* <Link
               to="/about"

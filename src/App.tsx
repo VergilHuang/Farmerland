@@ -3,8 +3,8 @@ import MainLayout from "@/layouts/MainLayout";
 import Home from "@/pages/home/index";
 import Articles from "@/pages/articles/index";
 import ArticleDetail from "@/pages/article-detail/index";
-import Portfolio from "@/pages/portfolio/index";
-import About from "@/pages/about/index";
+// import Portfolio from "@/pages/portfolio/index";
+// import About from "@/pages/about/index";
 
 const router = createBrowserRouter([
   {
@@ -23,14 +23,14 @@ const router = createBrowserRouter([
         path: "articles/:slug",
         element: <ArticleDetail />,
       },
-      {
-        path: "portfolio",
-        element: <Portfolio />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
+      // {
+      //   path: "portfolio",
+      //   element: <Portfolio />,
+      // },
+      // {
+      //   path: "about",
+      //   element: <About />,
+      // },
     ],
   },
 ]);
