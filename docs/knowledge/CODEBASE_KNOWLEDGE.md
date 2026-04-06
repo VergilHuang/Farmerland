@@ -1,4 +1,4 @@
-# PROJECT_KNOWLEDGE.md
+# CODEBASE_KNOWLEDGE.md
 
 > 自動生成於：2026-04-01 12:38
 > 生成工具：analysis-codebase-fe workflow
