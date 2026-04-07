@@ -135,7 +135,3 @@ import { posts } from "@/../.velite";
 ---
 
 ## References（參考文件）
-
-以下參考文件為專案的規範文件，**請在需要生成程式碼時才參閱。**
-
-- Coding Conventions: @docs/coding-conventions.md
