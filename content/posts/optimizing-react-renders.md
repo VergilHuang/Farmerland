@@ -6,6 +6,7 @@ category: "Engineering"
 cover: "https://lh3.googleusercontent.com/aida-public/AB6AXuDt1iL9XRvpefhdjckiysQ1IZQLI7SXrLR2UvD8vUUNkydDM50-rfdY3mOUqIgKiY81w3JVDowBHHtKbW-xGry8Lr6FQoEmcyZuSe7pd_uj51p3iZPun8wUTSXrKe8cmy_b-icSZquHmxZDc9pZz-szkpCZLOVSkUe8TFpocLBZ81U8u53567a-oGcGFDOHz3kFmCyZ6oKhZSRN2RqKi-2PA3jJAn_xOCt69ivC2CFvwudtTcIgUcw9bikNy8SvLkiuu_tWmydbcrvl"
 coverAlt: "Clean lines of computer code on a dark screen"
 excerpt: "React's rendering process is efficient, but as applications grow, unnecessary re-renders can become a bottleneck. Understanding how to leverage `useMemo` and `useCallback` effectively is crucial for building high-performance user interfaces."
+readingTime: 15
 tags:
   - Performance
   - React
@@ -29,7 +30,13 @@ const sortedList = useMemo(() => {
 
 function expensiveComponent({ data }) {
   // This component will only re-render if data changes
-  return <div>{data.map(i => <span>{i}</span>)}</div>;
+  return (
+    <div>
+      {data.map((i) => (
+        <span>{i}</span>
+      ))}
+    </div>
+  );
 }
 ```
 

@@ -40,7 +40,7 @@ useEffect(() => {
 
 ### Coding Style
 
-javascript 參考: @docs/javascript-specific-convention.md
+javascript 參考: @docs/javascript-convention.md
 
 ---
 

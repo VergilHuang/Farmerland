@@ -1,26 +1,24 @@
-# Prevent Ninja Code — 禁止忍者代碼規範
+# 禁止難以閱讀與維護的代碼規範 (Human-Readability & Maintainability Convention)
 
-> **參考來源**：[javascript.info/ninja-code](https://javascript.info/ninja-code)
->
-> 本文件整理了「忍者代碼」的各種反模式，並以本專案的角度說明**為何禁止**以及**正確做法**。  
-> 請每位開發者在 Code Review 時將此文件作為檢查清單使用。
+> 本文件整理了各種「難以閱讀與維護」的代碼反模式（Anti-Patterns），並以本專案的角度說明**為何禁止**以及**正確做法**。  
+> **核心定義：禁止任何刻意提高閱讀門檻、隱藏意圖、製造混淆的代碼。**
+> 請每位開發者（及 AI 代理人）在開發與 Code Review 時將此文件作為首要檢查清單。
 
 ---
 
 ## 總覽
 
-「忍者代碼」是一系列讓代碼看起來聰明、卻極難維護的壞習慣。  
-這些模式的共同特徵是：**刻意提高閱讀門檻**、隱藏意圖、製造混淆。  
+本規範旨在消除開發中的「壞習慣」。這些習慣通常被稱為「忍者代碼」，意指那些讓代碼看起來聰明、卻極難維護、人類難以閱覽的邏輯。  
 以下逐條列出禁止項目，並附上正確替代方案。
 
 ---
 
 ## ❌ Rule 1：禁止為了「簡短」而犧牲可讀性
 
-**Ninja Work**：將複雜邏輯壓縮成一行，炫耀對語言特性的熟悉度。
+**Prevent**：將複雜邏輯壓縮成一行，炫耀對語言特性的熟悉度。
 
 ```js
-// ❌ 忍者寫法 — 無法快速理解 i 的含義
+// ❌ 難以閱讀的寫法 — 無法快速理解 i 的含義
 i = i ? (i < 0 ? Math.max(0, len + i) : i) : 0;
 ```
 
@@ -39,10 +37,10 @@ if (i < 0) {
 
 ## ❌ Rule 2：禁止使用單字母變數名稱（迴圈計數器除外）
 
-**Ninja Work**：到處使用 `a`、`b`、`c`、`x`、`y` 作為變數名稱，尤其是在長迴圈或函式中。
+**Prevent**：到處使用 `a`、`b`、`c`、`x`、`y` 作為變數名稱，尤其是在長迴圈或函式中。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 const a = fetchUser();
 const b = a.permissions;
 ```
@@ -59,10 +57,10 @@ const permissions = user.permissions;
 
 ## ❌ Rule 3：禁止使用無意義縮寫
 
-**Ninja Work**：將變數名稱縮短為只有作者懂的縮寫。
+**Prevent**：將變數名稱縮短為只有作者懂的縮寫。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 const lst = getUsers();
 const ua = navigator.userAgent;
 const brsr = getBrowserInfo();
@@ -83,10 +81,10 @@ const browserInfo = getBrowserInfo();
 
 ## ❌ Rule 4：禁止使用過於抽象的名稱
 
-**Ninja Work**：使用 `data`、`value`、`item`、`obj`、`elem`、`str`、`num` 等無語意的通用名稱。
+**Prevent**：使用 `data`、`value`、`item`、`obj`、`elem`、`str`、`num` 等無語意的通用名稱。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 const data = await fetch('/api/users');
 const value = data.json();
 const item = value[0];
@@ -105,10 +103,10 @@ const firstUser = users[0];
 
 ## ❌ Rule 5：禁止使用過於相似的變數名稱製造混淆
 
-**Ninja Work**：在同一作用域中使用僅差一個字母或高度相似的名稱，讓讀者難以分辨。
+**Prevent**：在同一作用域中使用僅差一個字母或高度相似的名稱，讓讀者難以分辨。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 const date = new Date();
 const data = await fetchData();
 // 接下來的 100 行中混用 date 和 data...
@@ -126,10 +124,10 @@ const apiResponse = await fetchData();
 
 ## ❌ Rule 6：禁止對同一類行為使用不同前綴（或對不同行為使用相同前綴）
 
-**Ninja Work**：相同類型的函式用不同前綴（`displayMessage` / `showName` / `renderTitle` / `paintHeader`），或不同類型的函式用相同前綴。
+**Prevent**：相同類型的函式用不同前綴（`displayMessage` / `showName` / `renderTitle` / `paintHeader`），或不同類型的函式用相同前綴。
 
 ```ts
-// ❌ 忍者寫法 — 相同功能，不同前綴
+// ❌ 難以閱讀的寫法 — 相同功能，不同前綴
 function displayMessage(msg: string) { ... }
 function showName(name: string) { ... }
 function renderTitle(title: string) { ... }
@@ -154,10 +152,10 @@ function renderPageTitle(title: string) { ... }
 
 ## ❌ Rule 7：禁止重複使用同一個變數名稱存放不同意義的值
 
-**Ninja Work**：在函式中對同一個參數或變數重複賦值，使其在函式的不同階段代表不同的東西。
+**Prevent**：在函式中對同一個參數或變數重複賦值，使其在函式的不同階段代表不同的東西。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 function processElement(elem: Element) {
   // 前 20 行用 elem 操作原始元素
   elem = elem.cloneNode(true) as Element; // 突然變成 clone！
@@ -180,10 +178,10 @@ function processElement(elem: Element) {
 
 ## ❌ Rule 8：禁止毫無規則地使用底線前綴
 
-**Ninja Work**：隨意在變數前加 `_` 或 `__`，或在不同地方賦予不同意義。
+**Prevent**：隨意在變數前加 `_` 或 `__`，或在不同地方賦予不同意義。
 
 ```ts
-// ❌ 忍者寫法 — 底線含義不明
+// ❌ 難以閱讀的寫法 — 底線含義不明
 const _name = 'Vergil';
 let __value = 42;
 const _id = generateId(); // 這個底線代表什麼？
@@ -204,10 +202,10 @@ const id = generateId();
 
 ## ❌ Rule 9：禁止使用誇飾性修飾詞作為名稱
 
-**Ninja Work**：用 `super`、`mega`、`nice`、`cool`、`ultimate` 等修飾詞修飾名稱，看似隆重卻毫無語意。
+**Prevent**：用 `super`、`mega`、`nice`、`cool`、`ultimate` 等修飾詞修飾名稱，看似隆重卻毫無語意。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 const superElement = document.querySelector('.header');
 const megaFrame = createFrame();
 const niceItem = getTopResult();
@@ -226,10 +224,10 @@ const topResultItem = getTopResult();
 
 ## ❌ Rule 10：禁止在內層作用域遮蔽（Shadow）外層同名變數
 
-**Ninja Work**：在函式或區塊內宣告與外層相同名稱的變數，使外層變數「被遮蔽」。
+**Prevent**：在函式或區塊內宣告與外層相同名稱的變數，使外層變數「被遮蔽」。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 const user = authenticateUser();
 
 function render() {
@@ -254,10 +252,10 @@ function render() {
 
 ## ❌ Rule 11：禁止在「查詢型」函式中夾帶隱性副作用
 
-**Ninja Work**：命名為 `is*`、`check*`、`find*`、`get*` 的函式，內部卻偷偷修改狀態或觸發副作用。
+**Prevent**：命名為 `is*`、`check*`、`find*`、`get*` 的函式，內部卻偷偷修改狀態或觸發副作用。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 function isReady(): boolean {
   status = 'checking'; // 副作用！修改了外部狀態
   return internalCheck();
@@ -289,10 +287,10 @@ function checkPermission(): boolean {
 
 ## ❌ Rule 12：禁止函式承擔超出其名稱範圍的職責
 
-**Ninja Work**：一個函式做多件不相關的事，讓函式無法被單獨重用。
+**Prevent**：一個函式做多件不相關的事，讓函式無法被單獨重用。
 
 ```ts
-// ❌ 忍者寫法
+// ❌ 難以閱讀的寫法
 // validateEmail 除了驗證，還顯示錯誤、重置表單
 function validateEmail(email: string): boolean {
   const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

@@ -23,6 +23,7 @@ export default defineConfig({
         cover: s.string().optional(),
         coverAlt: s.string().optional(),
         metadata: s.metadata().optional(),
+        readingTime: s.number().optional(),
         tags: s.array(s.string()).optional(),
         content: s.markdown(),
       }),

@@ -4,13 +4,13 @@ import { posts } from "../../../.velite";
 import FarmPagination from "@/components/FarmPagination";
 import PostArticleCard from "./components/PostArticleCard";
 import ArticlesSidebar from "./components/ArticlesSidebar";
+import PostSearchBar from "./components/PostSearchBar";
 
 export default function Articles() {
   const {
     currentPage,
     setCurrentPage,
     searchQuery,
-    setSearchQuery,
     selectedCategory,
     selectedTags,
     clearFilters,
@@ -48,23 +48,7 @@ export default function Articles() {
         {/* Main Content Area */}
         <div className="flex flex-col gap-8 lg:col-span-8">
           {/* Search Bar Section */}
-          <div className="w-full">
-            <label className="flex h-14 w-full flex-col">
-              <span className="sr-only">Search articles</span>
-              <div className="flex h-full w-full flex-1 items-stretch overflow-hidden rounded-xl border border-primary/10 shadow-sm">
-                <div className="flex items-center justify-center bg-white pl-4 text-primary/50 dark:bg-slate-800">
-                  <span className="material-symbols-outlined">search</span>
-                </div>
-                <input
-                  className="form-input flex h-full w-full min-w-0 flex-1 border-none bg-white px-4 text-base font-normal placeholder:text-primary/40 focus:ring-0 dark:bg-slate-800 dark:text-slate-100"
-                  placeholder="Search the archives..."
-                  aria-label="Search the archives"
-                  value={searchQuery}
-                  onChange={(searchEvent) => setSearchQuery(searchEvent.target.value)}
-                />
-              </div>
-            </label>
-          </div>
+          <PostSearchBar />
 
           <div className="flex items-baseline justify-between border-b border-primary/10 pb-4 dark:border-white/10">
             <h1 className="text-3xl font-bold tracking-tight text-primary dark:text-slate-100">Latest Articles</h1>
